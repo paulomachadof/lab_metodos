@@ -1,2 +1,3 @@
 # lab_metodos
-Arquivos para aulas de laboratório de Métodos Numéricos
+### Repositório para as aulas de laboratório de Métodos Numéricos
+
