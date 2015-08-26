@@ -50,3 +50,22 @@ k	  a		  fa		  b		  fb		  x		  fx		intervX
 Raiz encontrada: 0.33740234375
 
 ```
+
+## Aula sobre o método da Posição Falsa
+### Objetivo
+O objetivo da aula é implementar o método da Posição Falsa em Python (ou em outra linguagem de sua preferência) e aplicá-lo para achar as raízes de equações não lineares.
+
+### Parte 1: Implementar o método da Posição Falsa
+Inicie com o arquivo fornecido localizado em **raiz/false_pos_.py**. Esse arquivo já possui um esqueleto iniciado e você só precisa editar os comentários indicados. Para abrir o arquivo, use o comando abaixo em um terminal:
+
+```
+$ cd lab_metodos/raiz
+$ gedit false_pos.py &
+
+```
+
+O arquivo já inclui código para testar o método com o exemplo visto em sala. Observe se você consegue reproduzir a tabela de execução para f(x) = x^3-9x+3, com a = 0, b = 1 e epsilon = 0.001. Seu método deve retornar a mesma raiz e executar até k = 2 iterações.
+Para testar o método execute o seguinte comando no terminal:
+```
+$ python3 false_pos.py
+```
