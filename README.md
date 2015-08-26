@@ -69,3 +69,13 @@ Para testar o método execute o seguinte comando no terminal:
 ```
 $ python3 false_pos.py
 ```
+
+Se você implementar o método corretamente, você deverá ver a seguinte saída:
+
+```
+Método da Posição Falsa
+0	0.000000e+00	3.000000e+00	1.000000e+00	-5.000000e+00	3.750000e-01	-3.222656e-01	1.000000e+00
+1	0.000000e+00	3.000000e+00	3.750000e-01	-3.222656e-01	3.386243e-01	-8.790199e-03	3.750000e-01
+2	0.000000e+00	3.000000e+00	3.386243e-01	-8.790199e-03	3.376350e-01	-2.258842e-04	3.386243e-01
+Raiz encontrada: 0.33763504551140067
+```
