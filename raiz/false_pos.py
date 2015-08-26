@@ -32,6 +32,9 @@ def false_pos(f, a, b, epsilon, maxIter = 50):
     
     # if...
     
+    ## Mostra na tela cabeçalho da tabela
+    print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
+    
     ## Iniciliza o k, dessa vez usaremos um for
     for k in range(0, maxIter+1):
         ## Calcula x, fx
