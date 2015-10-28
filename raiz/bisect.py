@@ -85,4 +85,4 @@ if __name__ == "__main__":
     if houveErro:
         print("O Método da Bisseção retornou um erro.")
     if raiz is not None:
-        print("Raiz encontrada: %s"%raiz
+        print("Raiz encontrada: %s"%raiz)
