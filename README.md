@@ -163,3 +163,112 @@ git add teste01.py
 git commit -m "Questão 2 implementada."
 git push origin master
 ```
+
+## 11/11/2015 - Método de Newton-Raphson
+### Objetivo
+O objetivo da aula é implementar o método de Newton-Raphson em Python (ou em outra linguagem de sua preferência) e aplicá-lo para achar as raízes de equações não lineares.
+
+### Parte 1: Configurações
+#### Sincronize o fork
+Visite o seu fork de lab_metodos e sincronize-o, se necessário.
+
+#### Verifique as configurações da máquina local
+Tenha certeza de que a máquina local esteja confugurada com o seu usuário. Num terminal, digite os seguintes comandos:
+```
+$ git config --get user.name
+$ git config --get user.email
+
+```
+Você deve ver o seu nome e o seu e-mail. Caso contrário, configure novamente a máquina:
+
+```
+$ git config --global user.name "Seu nome"
+$ git config --global user.email seu_email@email.com
+
+```
+
+Verifique também se o gedit está configurado como editor padrão:
+
+```
+$ git config --get core.editor
+gedit -w -s
+
+```
+Se for mostrado algo diferente, execute o seguinte comando:
+
+```
+$ git config --global core.editor "gedit -w -s"
+
+```
+
+#### Clone ou atualize o seu repositório na máquina local
+
+```
+$ git clone url_do_repositório
+
+```
+
+Ou se você já tiver uma cópia do seu repositório, apenas atualize-o:
+
+```
+$ cd lab_metodos
+$ git pull
+
+```
+### Parte 2: Implementação do método de Newton-Raphson
+
+#### 1. Crie um arquivo chamado newton.py na pasta raiz:
+```
+
+$ gedit raiz/newton.py &
+
+```
+#### 2. Implemente o método de Newton-Raphson de acordo com o algoritmo visto em sala
+```
+def newton(f, flin, x0, epsilon, iterMax=50):
+    # ...
+```
+#### 3. Teste o método de Newton-Raphson com o mesmo exemplo do método da Bisseção
+Ao final do arquivo, dentro do bloco criado com a linha abaixo, faça:
+
+```
+if __name__ == "__main__":
+
+```
+1. Defina a função f(x) = x^3-9x+3
+2. Defina a função flin(x) = 3x^2-9
+3. Defina x0 = 0.5 e epsilon = 0.0001
+4. Chame a função do método de newton, como abaixo:
+
+```
+print("Método de Newton-Raphson")
+(houveErro, raiz) = newton(f,flin,x0,epsilon)
+if houveErro:
+    print("O Método de Newton-Raphson retornou um erro.")
+if raiz is not None:
+    print("Raiz encontrada: %s"%raiz)
+```
+
+Execute o seu código através do comando abaixo:
+```
+$ python3 newton.py
+
+```
+
+Confira a saída do seu programa com a saída abaixo:
+```
+Método de Newton-Raphson
+k	  x		  f(x)
+1	3.333333e-01	3.703704e-02
+2	3.376068e-01	1.834089e-05
+Raiz encontrada: 0.33760683760683763
+```
+### Parte 3: Resolva as seguintes questões
+1. Use a sua implementação do Método de Newton para encontrar a raiz da equação 4cos(x) - e^(2x)=0, com x0 = -2.5 e epsilon = 0.00001. O método convergiu? Qual a raiz encontrada e quantas iterações foram executadas?
+
+```
+Dicas: Não se esqueça de importar as funções  da biblioteca math:
+	   from math import exp, cos, sin
+	   #depois pode usá-las normalmente cos(x), exp(x), sin(x)
+```
+2. E o que acontece quando você executa o método com x0 = -0.5? Explique da maneira mais detalhada possível em um comentário no seu arquivo.
