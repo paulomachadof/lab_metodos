@@ -20,7 +20,7 @@ def newton(f, df, x0, epsilon, maxIter = 50):
     for k in range(1, maxIter+1):
         x1 = x0 - f(x0)/df(x0)
         ## Mostra valores na tela
-        print("%d\t %f\t %f"%(k,x1,f(x1)))
+        print("%d\t %e\t %e"%(k,x1,f(x1)))
     
         ## Teste do critério de parada módulo da função
         if abs(f(x1)) <= epsilon:
