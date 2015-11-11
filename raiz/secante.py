@@ -53,6 +53,6 @@ if __name__ == "__main__":
     print("Método da Secante")
     (houveErro, raiz) = secante(f,df,x1,x0,epsilon)
     if houveErro:
-        print("O Método de Newton-Raphson a retornou um erro.")
+        print("O Método da Secante a retornou um erro.")
     if raiz is not None:	
         print("Raiz encontrada: %e"%raiz)
