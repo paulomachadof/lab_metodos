@@ -272,3 +272,249 @@ Dicas: Não se esqueça de importar as funções  da biblioteca math:
 	   #depois pode usá-las normalmente cos(x), exp(x), sin(x)
 ```
 2. E o que acontece quando você executa o método com x0 = -0.5? Explique da maneira mais detalhada possível em um comentário no seu arquivo.
+
+## 18/11/2015 - Método da Secante e método de Newton para polinômios
+### Objetivos
+Os objetivos da aula são três:
+1. Implementar o método da secante e testá-lo
+2. Implementar o método de Newton para polinômios e testá-lo
+3. Comparar o tempo de execução dos métodos de Newton para polinômios e Newton geral
+
+### Configurações
+#### Sincronize o fork
+Visite o seu fork de lab_metodos e sincronize-o, se necessário.
+
+#### Verifique as configurações da máquina local
+Tenha certeza de que a máquina local esteja confugurada com o seu usuário. Num terminal, digite os seguintes comandos:
+```
+$ git config --get user.name
+$ git config --get user.email
+
+```
+Você deve ver o seu nome e o seu e-mail. Caso contrário, configure novamente a máquina:
+
+```
+$ git config --global user.name "Seu nome"
+$ git config --global user.email seu_email@email.com
+
+```
+
+Verifique também se o gedit está configurado como editor padrão:
+
+```
+$ git config --get core.editor
+gedit -w -s
+
+```
+Se for mostrado algo diferente, execute o seguinte comando:
+
+```
+$ git config --global core.editor "gedit -w -s"
+
+```
+
+#### Clone ou atualize o seu repositório na máquina local
+
+```
+$ git clone url_do_repositório
+
+```
+
+Ou se você já tiver uma cópia do seu repositório, apenas atualize-o:
+
+```
+$ cd lab_metodos
+$ git pull
+
+```
+### Parte 1: Implementação do método da Secante
+
+#### 1. Copie o arquivo newton.py na pasta raiz e salve-o com o nome secante.py:
+```
+$ cd raiz
+$ cp newton.py secante.py
+$ gedit secante.py &
+
+```
+#### 2. Implemente o método da Secante, modificando o método de Newton
+A primeira modificação é alterar o nome da função e os parâmetros de entrada:
+```
+def secante(f, x0, x1, epsilon, iterMax=50):
+   
+```
+Depois acrescente o teste para saber se x1 é raiz, e dentro das iterações, modifique o cálculo de x1 (agora é x2 e use a fórmula da secante) e atualize os valores de x0 e x1 ao final do loop
+
+#### 3. Teste o método da Secante com o exemplo visto em sala
+Ao final do arquivo, dentro do bloco definido com a linha abaixo, faça:
+
+```
+if __name__ == "__main__":
+
+```
+2. Remova a função flin(x) pois ela não é mais necessária
+3. Defina x0 = 0, x1 = 1 e epsilon = 0.0005.
+4. Altere a chamada da função como abaixo:
+
+```
+print("Método da Secante")
+(houveErro, raiz) = secante(f,x0,x1,epsilon)
+if houveErro:
+    print("O Método da Secante retornou um erro.")
+if raiz is not None:
+    print("Raiz encontrada: %s"%raiz)
+```
+
+Execute o seu código através do comando abaixo:
+```
+$ python3 secante.py
+
+```
+
+Confira a saída do seu programa com a saída abaixo:
+```
+Método da Secante
+k	  x		  f(x)
+-	0.000000e+00	3.000000e+00
+-	1.000000e+00	-5.000000e+00
+1	3.750000e-01	-3.222656e-01
+2	3.319415e-01	4.910114e-02
+3	3.376346e-01	-2.222064e-04
+Raiz encontrada: 0.33763462072303707
+```
+Se deu tudo certo, faça o commit do seu arquivo e depois faça o push para o seu repositório:
+```
+git add secante.py
+git commit -m "Método da secante"
+git push origin master
+```
+### Parte 2: Implementação do método de Newton para polinômios
+#### 1. Copie o arquivo secante.py na pasta raiz e salve-o com o nome newton_poli.py:
+```
+$ cp secante.py newton_poly.py
+$ gedit newton_poli.py &
+
+```
+
+#### 2. Implemente o método de Newton para polinômios, modificando o método de Newton
+A primeira modificação é alterar o nome da função e os parâmetros de entrada:
+```
+def newton_poli(n, a, x, epsilon, iterMax=50):
+
+```
+Modifique o corpo da função com o algoritmo visto em sala.
+
+#### 3. Teste o método de Newton para polinômios com o exemplo visto em sala
+Ao final do arquivo, dentro do bloco definido com a linha abaixo, faça:
+
+```
+if __name__ == "__main__":
+
+```
+2. Remova todas as definições de funções, pois elas não são mais necessárias
+3. Defina os parâmetros de entrada como mostrado abaixo:
+4. Altere a chamada da função como abaixo:
+
+```
+    n = 3
+	a = [-2,-1,2,1]
+    x = 2
+	epsilon = 0.001
+    print("Método de Newton-Raphson para Polinômios")
+    (houveErro, raiz) = newton_poli(n,a,x,epsilon)
+    if houveErro:
+        print("O Método de Newton-Raphson para polinômios retornou um erro.")
+    if raiz is not None:
+        print("Raiz encontrada: %s"%raiz)
+```
+
+Execute o seu código através do comando abaixo:
+```
+$ python3 newton_poli.py
+
+```
+
+Confira a saída do seu programa com a saída abaixo:
+```
+Método de Newton-Raphson para Polinômios
+k	  x		  p(x)
+0	2.000000000	1.200000e+01
+1	1.368421053	2.939204e+00
+2	1.077163125	4.932089e-01
+3	1.004520163	2.722323e-02
+4	1.000016930	1.015792e-04
+Raiz encontrada: 1.0000169296346983
+
+```
+Se deu tudo certo, faça o commit do seu arquivo e depois faça o push para o seu repositório:
+```
+git add newton_poli.py
+git commit -m "Método de Newton para polinômios"
+git push origin master
+```
+### Parte 3: Comparação de tempo de execução
+
+Dentro da pasta testes existe um arquivo chamado teste_tempo.py. Nesse arquivo é medido o tempo de execução de trechos de código em python, usando o clock da máquina:
+```
+import time
+
+...
+
+tni = time.perf_counter()
+(houveErro1, raiz1) = newton(p,plin,x,epsilon, maxIter)
+tnf = time.perf_counter()
+print("Tempo de execução do Método de Newton-Raphson: %s ms"%((tnf-tni)*1000))
+
+``` 
+O resultado é em fração de segundos. Nós multiplicamos a diferença por 1000 para obtermos o resultado em milissegundos.
+
+#### 1. Execute o arquivo teste_tempo.py:
+```
+$ cd ../testes
+$ python3 teste_tempo.py
+
+```
+Se tudo deu certo até agora, você deve ver algo parecido com a saída abaixo:
+
+```
+p(x) = 3*x^5-2*x^4+5*x^3+7*x^2-3*x+1
+k	  x		  f(x)		 f'(x)
+1	-1.970626e+00	-1.234832e+02	3.150910e+02
+2	-1.578729e+00	-3.833619e+01	1.369417e+02
+3	-1.298784e+00	-1.102759e+01	6.432769e+01
+4	-1.127355e+00	-2.578819e+00	3.597222e+01
+5	-1.055666e+00	-3.315022e-01	2.697820e+01
+6	-1.043378e+00	-8.595656e-03	2.558616e+01
+7	-1.043042e+00	-6.294848e-06	2.554869e+01
+8	-1.043042e+00	-3.383960e-12	2.554866e+01
+9	-1.043042e+00	3.996803e-15	2.554866e+01
+Tempo de execução do Método de Newton-Raphson: 0.4844830255024135 ms
+Raiz encontrada: -1.043041987980764
+
+
+
+k	  x		  p(x)
+0	-0.750000000	3.733398e+00
+1	-1.970625798	-1.234832e+02
+2	-1.578728896	-3.833619e+01
+3	-1.298783552	-1.102759e+01
+4	-1.127355155	-2.578819e+00
+5	-1.055665965	-3.315022e-01
+6	-1.043378184	-8.595656e-03
+7	-1.043042234	-6.294848e-06
+8	-1.043041988	-3.381961e-12
+9	-1.043041988	-2.442491e-15
+Tempo de execução do Método de Newton-Raphson para Polinômios: 0.27852700441144407 ms
+```
+
+Note que os tempos de execução podem variar, mas em geral o tempo do método de Newton para polinômios deve ser menor.
+
+#### 1. Comparar os tempos de execução de outro polinômio
+
+Copie o arquivo teste_tempo.py para teste_tempo2.py:
+```
+$ cp teste_tempo.py teste_tempo2.py
+$ gedit teste_tempo2.py &
+
+```
+
+Modifique o arquivo para achar as raízes de p(x) = -3*x^6 + 2*x^5-5*x^4+6*x^3+7*x^2-4*x+3, com aproximação inicial x = 1.1 e epsilon = 1.000000e-13
