@@ -340,7 +340,7 @@ $ gedit secante.py &
 A primeira modificação é alterar o nome da função e os parâmetros de entrada:
 ```
 def secante(f, x0, x1, epsilon, iterMax=50):
-   
+
 ```
 Depois acrescente o teste para saber se x1 é raiz, e dentro das iterações, modifique o cálculo de x1 (agora é x2 e use a fórmula da secante) e atualize os valores de x0 e x1 ao final do loop
 
@@ -415,16 +415,17 @@ if __name__ == "__main__":
 4. Altere a chamada da função como abaixo:
 
 ```
-    n = 3
-	a = [-2,-1,2,1]
-    x = 2
-	epsilon = 0.001
-    print("Método de Newton-Raphson para Polinômios")
-    (houveErro, raiz) = newton_poli(n,a,x,epsilon)
-    if houveErro:
-        print("O Método de Newton-Raphson para polinômios retornou um erro.")
-    if raiz is not None:
-        print("Raiz encontrada: %s"%raiz)
+
+n = 3
+a = [-2,-1,2,1]
+x = 2
+epsilon = 0.001
+print("Método de Newton-Raphson para Polinômios")
+(houveErro, raiz) = newton_poli(n,a,x,epsilon)
+if houveErro:
+    print("O Método de Newton-Raphson para polinômios retornou um erro.")
+if raiz is not None:
+    print("Raiz encontrada: %s"%raiz)
 ```
 
 Execute o seu código através do comando abaixo:
@@ -464,7 +465,7 @@ tni = time.perf_counter()
 tnf = time.perf_counter()
 print("Tempo de execução do Método de Newton-Raphson: %s ms"%((tnf-tni)*1000))
 
-``` 
+```
 O resultado é em fração de segundos. Nós multiplicamos a diferença por 1000 para obtermos o resultado em milissegundos.
 
 #### 1. Execute o arquivo teste_tempo.py:
@@ -518,3 +519,19 @@ $ gedit teste_tempo2.py &
 ```
 
 Modifique o arquivo para achar as raízes de p(x) = -3*x^6 + 2*x^5-5*x^4+6*x^3+7*x^2-4*x+3, com aproximação inicial x = 1.1 e epsilon = 1.000000e-13
+
+#### 2. Execute o arquivo teste_tempo2.py:
+```
+$ python3 teste_tempo2.py
+
+```
+
+Escreva num comentário no final do arquivo a raiz encontrada por cada método e o número de iterações. Salve o arquivo.
+
+Se deu tudo certo, faça o commit do seu arquivo e depois faça o push para o seu repositório:
+```
+git add teste_tempo2.py
+git commit -m "Comparação do tempo de execução"
+git push origin master
+```
+
