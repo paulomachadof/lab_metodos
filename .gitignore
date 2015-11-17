@@ -58,3 +58,8 @@ target/
 
 # Temporary files
 *~
+
+#Eclipse/PyDev
+.project
+.pydevproject
+.settings/
