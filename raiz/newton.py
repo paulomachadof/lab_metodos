@@ -15,7 +15,7 @@ def newton(f, df, x0, epsilon, maxIter = 50):
     if abs(f(x0)) <= epsilon:
         return (False, x0)
    
-    print("K\t X\t F(x)")
+    print("K\t      X\t             F(x)")
 
     for k in range(1, maxIter+1):
         x1 = x0 - f(x0)/df(x0)
