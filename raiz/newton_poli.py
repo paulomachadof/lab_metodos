@@ -6,7 +6,7 @@ Created on Nov 9, 2015
 '''
 from math import *
 
-def newton(n, a, x, epsilon, maxIter = 50):
+def newton_poli(n, a, x, epsilon, maxIter = 50):
     """Executa o método de Newton a para achar o zero de f 
        com precisão epsilon. O método executa no máximo maxIter
        Retorna uma tupla (houveErro, raiz), onde houveErro é booleano.
@@ -40,7 +40,7 @@ if __name__ == "__main__":
     epsilon = 0.01
     maxIter = 30
     print("Método de Newton Para Polinômios")
-    (houveErro, raiz) = newton(n,a,x,epsilon)
+    (houveErro, raiz) = newton_poli(n,a,x,epsilon)
     if houveErro:
         print("O Método de Newton Para Zerar Polinômios a retornou um erro.")
     if raiz is not None:	
