@@ -39,11 +39,9 @@ if __name__ == "__main__":
         A1 = [[1, -3, 2],
               [-2, 8, -1],
               [4, -6, 5]]
-
         b1 = [11, -15, 29]
 
         x = gauss(n1, A1, b1)
-
         if x != [2, -1, 3]:
             print("A função retornou um resultado não esperado. ")
             print("A solução deveria ser %s e o que foi retornado foi %s."%([2, -1, 3],x))
@@ -51,5 +49,4 @@ if __name__ == "__main__":
             print("Teste 1 bem sucedido")
             
     print("Testando o método da eliminação de gauss")
-
     teste01()

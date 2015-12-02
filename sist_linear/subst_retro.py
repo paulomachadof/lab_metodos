@@ -1,3 +1,4 @@
+# coding: utf-8
 '''
 Created on Dec 1, 2015
 
@@ -9,7 +10,9 @@ def substituicoes_retroativas(n, A, b):
        linear triangular superior Ax=b.
        Parâmetros de entrada: n: ordem da matriz A; A é uma matriz triangular
        superior e b é o vetor constante. 
-    '''
+       Saída: vetor x
+    '''  
+    # escreva o código aqui
     x = n * [0]   
     x[n-1] = b[n-1] / A[n-1][n-1]
     for i in range(n-2,-1,-1):
