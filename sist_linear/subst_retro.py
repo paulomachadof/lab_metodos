@@ -11,10 +11,15 @@ def substituicoes_retroativas(n, A, b):
        Parâmetros de entrada: n: ordem da matriz A; A é uma matriz triangular
        superior e b é o vetor constante. 
        Saída: vetor x
-    '''
-    x = n * [0]
-    
+    '''  
     # escreva o código aqui
+    x = n * [0]   
+    x[n-1] = b[n-1] / A[n-1][n-1]
+    for i in range(n-2,-1,-1):
+        soma = 0
+        for j in range(i+1,n):
+            soma += A[i][j] * x[j]
+        x[i] = (b[i] - soma)/A[i][i]
     
     return x
 
