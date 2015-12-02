@@ -11,7 +11,7 @@ def newton(f, df, x0, epsilon, maxIter = 50):
        com precisão epsilon. O método executa no máximo maxIter
        Retorna uma tupla (houveErro, raiz), onde houveErro é booleano.
     """
-   #Testando se X0 já é raiz    
+    #Testando se X0 já é raiz    
     if abs(f(x0)) <= epsilon:
         return (False, x0)
    

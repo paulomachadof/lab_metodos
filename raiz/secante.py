@@ -24,8 +24,8 @@ def secante(f,x0, x1, epsilon, maxIter = 50):
 
     for k in range(1, maxIter+1):
         x2 = x1 - f(x1)/(f(x1) - f(x0)) * (x1 - x0)
-        
-	# Mostra valores na tela
+	
+        # Mostra valores na tela
         print("%d\t %e\t %e\t"%(k,x2,f(x2)))
     
         # Teste do critério de parada módulo da função

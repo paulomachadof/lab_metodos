@@ -5,11 +5,12 @@ Created on Aug 18, 2015
 @author: emanuele
 '''
 
-def bissecao(f, a, b, epsilon, maxIter = 50):
+def bissecao(f, a, b, epsilon, maxIter = 50, mostraTabela = False):
     """Executa o método da bisseção para achar o zero de f no intervalo
        [a,b] com precisão epsilon. O método executa no máximo maxIter
        iterações.
-       Retorna uma tupla (houveErro, raiz), onde houveErro é booleano.
+       Retorna uma tupla (houveErro, raiz, k), onde houveErro é booleano.
+       Se mostraTabela for True, mostra a tabela de iterações
     """
     ## Inicializar as variáveis fa e fb
     fa = f(a)
@@ -20,22 +21,23 @@ def bissecao(f, a, b, epsilon, maxIter = 50):
     if fa*fb > 0:
         ## Mostrar mensagem
         print("ERRO: Função não muda de sinal entre a e b.")
-        return (True, None)
-   
-    ## Mostra na tela cabeçalho da tabela
-    print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
+        return (True, None, k)
+    if mostraTabela:
+        ## Mostra na tela cabeçalho da tabela
+        print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
    
     ## Inicializa tamanho do intervalo intervX usando a função abs, x e fx
     intervX = abs(b-a)
     x = (a+b)/2
     fx = f(x)
    
-    ## Mostra dados de inicialização
-    print("-\t%e\t%e\t%e\t%e\t%e\t%e\t%e"%(a, fa, b, fb, x, fx, intervX))
+    if mostraTabela:
+        ## Mostra dados de inicialização
+        print("-\t%e\t%e\t%e\t%e\t%e\t%e\t%e"%(a, fa, b, fb, x, fx, intervX))
    
     ## Teste se intervalo já é do tamanho da precisão e retorna a raiz sem erros
     if intervX <= epsilon:
-        return(False,x)
+        return(False,x, k)
        
   
     ##Iniciliza o k
@@ -59,17 +61,18 @@ def bissecao(f, a, b, epsilon, maxIter = 50):
         x = (a+b)/2
         fx = f(x)
        
-        ## Mostra valores na tela
-        print("%d\t%e\t%e\t%e\t%e\t%e\t%e\t%e"%(k,a, fa, b, fb, x, fx, intervX))
+        if mostraTabela:
+            ## Mostra valores na tela
+            print("%d\t%e\t%e\t%e\t%e\t%e\t%e\t%e"%(k,a, fa, b, fb, x, fx, intervX))
        
         ## Teste do critério de parada
        
         if intervX <= epsilon:
-            return (False,x)
+            return (False,x,k)
         k = k+1
     ## Se chegar aqui é porque o número máximo de iterações foi atingido
     print("Número Máximo de Operações atindo")
-    return (True, x)
+    return (True, x,k)
    
 
 if __name__ == "__main__":
@@ -81,7 +84,7 @@ if __name__ == "__main__":
     epsilon = 0.0001
     maxIter = 20
     print("Método da Bisseção")
-    (houveErro, raiz) = bissecao(f1,a,b,epsilon,maxIter)
+    (houveErro, raiz,k) = bissecao(f1,a,b,epsilon,maxIter,mostraTabela = False)
     if houveErro:
         print("O Método da Bisseção retornou um erro.")
     if raiz is not None:

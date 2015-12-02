@@ -5,11 +5,11 @@ Created on Aug 25, 2015
 @author: emanuele
 '''
 
-def false_pos(f, a, b, epsilon, maxIter = 50):
+def false_pos(f, a, b, epsilon, maxIter = 50,mostraTabela = False):
     """Executa o método da Posição Falsa para achar o zero de f no intervalo 
        [a,b] com precisão epsilon. O método executa no máximo maxIter
        iterações.
-       Retorna uma tupla (houveErro, raiz), onde houveErro é booleano.
+       Retorna uma tupla (houveErro, raiz,k), onde houveErro é booleano.
     """
     ## Inicializar as variáveis fa e fb
     fa = f(a)
@@ -20,37 +20,41 @@ def false_pos(f, a, b, epsilon, maxIter = 50):
     if fa*fb > 0:
         ## Mostrar mensagem
         print("ERRO: Função não mudou de sinal no intervalo dado")
-        return (True, None)
+        return (True, None,k)
     ## Inicializa tamanho do intervalo intervX usando a função abs
     intervX = abs(b-a)
     
     ## Teste se intervalo já é do tamanho da precisão e retorna a raiz sem erros
     if intervX <= epsilon:
-        return (False, (a+b)/2)
+        return (False, (a+b)/2,k)
     ## Teste se raiz está nos extremos dos intervalos
     if abs(fa) <= epsilon:
-        return (False,a)
+        return (False,a,k)
     if abs(fb) <= epsilon:
-        return (False,b) 
-    ## Mostra na tela cabeçalho da tabela
-    print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
+        return (False,b,k) 
+    
+    if mostraTabela:
+        ## Mostra na tela cabeçalho da tabela
+        print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
     
     for k in range(1, maxIter+1):
         ## Calcula x, fx
         x = (a * fb - b * fa)/(fb - fa)
         fx= f(x)
-        ## Mostra valores na tela
-        print("%d\t%e\t%e\t%e\t%e\t%e\t%e\t%e"%(k,a, fa, b, fb, x, fx, intervX))
+        
+        if mostraTabela:
+            ## Mostra valores na tela
+            print("%d\t%e\t%e\t%e\t%e\t%e\t%e\t%e"%(k,a, fa, b, fb, x, fx, intervX))
 
         ## Teste do critério de parada módulo da função
         if abs(fx) <= epsilon:
-           return (False,x)
+            return (False,x,k)
         
         ## Testes para saber se a raiz está entre a e x ou entre x e b e atualiza
         ## as variáveis apropriadamente
         
         if fa * fx > 0:
-       	    a = x 
+            a = x 
             fa = fx
         else:
             b = x
@@ -59,11 +63,11 @@ def false_pos(f, a, b, epsilon, maxIter = 50):
         ## Atualiza intervX e checa o outro critério de parada
         intervX = abs(b-a)
         if intervX <= epsilon:
-            return(False, (a+b)/2)
+            return(False, (a+b)/2,k)
        
     ## Se chegar aqui é porque o número máximo de iterações foi atingido
     print("O Número máximo de interações foi atingido")
-    return (True, x)
+    return (True, x,k)
     
 
 if __name__ == "__main__":
@@ -75,7 +79,7 @@ if __name__ == "__main__":
     epsilon = 0.001
     maxIter = 20
     print("Método da Posição Falsa")
-    (houveErro, raiz) = false_pos(f1,a,b,epsilon,maxIter)
+    (houveErro, raiz,k) = false_pos(f1,a,b,epsilon,maxIter,mostraTabela=False)
     if houveErro:
         print("O Método da Posição Falsa retornou um erro.")
     if raiz is not None:
