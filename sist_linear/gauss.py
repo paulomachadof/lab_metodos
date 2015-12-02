@@ -18,10 +18,16 @@ def gauss(n, A, b):
     Parâmetros de entrada: n: ordem da matriz A; A é uma matriz quadrada de 
     ordem n e b é o vetor constante.
     Saída: vetor x
-    '''
-    
+    '''   
     # escreva o código aqui
-    
+    for k in range(0,n-1):
+        for i in range(k+1,n):
+            m = A[i][k]/A[k][k]
+            A[i][k] = 0
+            for j in range(k+1,n):
+                A[i][j] = m * A[k][j] + A[i][j]
+            b[i] = m * b[k] + b[i]
+
     x = substituicoes_retroativas(n, A, b)
     return x
 
