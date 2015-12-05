@@ -24,7 +24,7 @@ def bissecao(f, a, b, epsilon, maxIter = 50, mostraTabela = False):
         return (True, None)
     if mostraTabela:
         ## Mostra na tela cabeçalho da tabela
-        print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
+        print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t    fx\t\t intervX")
    
     ## Inicializa tamanho do intervalo intervX usando a função abs, x e fx
     intervX = abs(b-a)
