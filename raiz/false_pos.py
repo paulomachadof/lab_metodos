@@ -20,7 +20,7 @@ def false_pos(f, a, b, epsilon, maxIter = 50,mostraTabela = False):
     if fa*fb > 0:
         ## Mostrar mensagem
         print("ERRO: Função não mudou de sinal no intervalo dado")
-        return (True, None,k)
+        return (True, None)
     ## Inicializa tamanho do intervalo intervX usando a função abs
     intervX = abs(b-a)
     
@@ -79,7 +79,7 @@ if __name__ == "__main__":
     epsilon = 0.001
     maxIter = 20
     print("Método da Posição Falsa")
-    (houveErro, raiz,k) = false_pos(f1,a,b,epsilon,maxIter,mostraTabela=False)
+    (houveErro, raiz) = false_pos(f1,a,b,epsilon,maxIter,mostraTabela=False)
     if houveErro:
         print("O Método da Posição Falsa retornou um erro.")
     if raiz is not None:

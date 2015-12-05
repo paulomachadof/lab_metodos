@@ -21,7 +21,7 @@ def bissecao(f, a, b, epsilon, maxIter = 50, mostraTabela = False):
     if fa*fb > 0:
         ## Mostrar mensagem
         print("ERRO: Função não muda de sinal entre a e b.")
-        return (True, None, k)
+        return (True, None)
     if mostraTabela:
         ## Mostra na tela cabeçalho da tabela
         print("k\t  a\t\t  fa\t\t  b\t\t  fb\t\t  x\t\t  fx\t\tintervX")
@@ -72,7 +72,7 @@ def bissecao(f, a, b, epsilon, maxIter = 50, mostraTabela = False):
         k = k+1
     ## Se chegar aqui é porque o número máximo de iterações foi atingido
     print("Número Máximo de Operações atindo")
-    return (True, x,k)
+    return (True,x,k)
    
 
 if __name__ == "__main__":
@@ -84,7 +84,7 @@ if __name__ == "__main__":
     epsilon = 0.0001
     maxIter = 20
     print("Método da Bisseção")
-    (houveErro, raiz,k) = bissecao(f1,a,b,epsilon,maxIter,mostraTabela = False)
+    (houveErro,raiz,k) = bissecao(f1,a,b,epsilon,maxIter,mostraTabela = False)
     if houveErro:
         print("O Método da Bisseção retornou um erro.")
     if raiz is not None:
