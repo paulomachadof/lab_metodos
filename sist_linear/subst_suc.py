@@ -9,6 +9,7 @@ def substituicoes_sucessivas(n, A, b):
        linear triangular inferior Ax=b.
        Parâmetros de entrada: n: ordem da matriz A; A é uma matriz triangular
        inferior e b é o vetor constante. 
+       Saída: vetor x
     '''
     x = n * [0]
     
