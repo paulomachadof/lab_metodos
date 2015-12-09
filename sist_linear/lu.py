@@ -57,15 +57,17 @@ def resolve_lu(n,A,b):
     Saída: vetor x
     '''
     ## Calcula L e U
-    #(L,U) = ...
+    
+    (L,U) = lu(n, A)
     
     ## Calcula o vetor y, usando substituições sucessivas
-    #y = 
+    y = substituicoes_sucessivas(n, L, b) 
     
     ## Calcula o vetor x, usando substituições retroativas
-    #x =
+    x = substituicoes_retroativas(n, U, y)
     
-    #return x
+    
+    return x
 
 if __name__ == "__main__":
     
@@ -105,6 +107,6 @@ if __name__ == "__main__":
             
     print("Testando a decomposição LU")
     ok = teste01()
-#     if ok:
-#         print("Testando a solução de sistema linear via LU")
-#         teste02()
+    if ok:
+         print("Testando a solução de sistema linear via LU")
+         teste02()
