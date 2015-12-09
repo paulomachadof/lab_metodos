@@ -10,11 +10,15 @@ def substituicoes_sucessivas(n, A, b):
        linear triangular inferior Ax=b.
        Parâmetros de entrada: n: ordem da matriz A; A é uma matriz triangular
        inferior e b é o vetor constante. 
-       Saída: vetor x
+       Saída: vetor     x
     '''
     x = n * [0]
-    
-    # escreva o código aqui
+    x[0] = b[0] / A[0][0]
+    for i in range(1,n):
+        soma = 0
+        for j in range(0,i):
+            soma += A[i][j] * x[j]
+        x[i] = (b[i] - soma)/A[i][i]
     
     return x
 
