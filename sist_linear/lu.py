@@ -36,7 +36,14 @@ def lu(n, A):
     L = identidade(n)
     
     #copie o código de gauss e modifique para a decomposição LU
-    
+    for k in range(0,n-1):
+        for i in range(k+1,n):
+            m = -A[i][k]/A[k][k]
+            A[i][k] = 0
+            L[i][k] = -m
+            for j in range(k+1,n):
+                A[i][j] = m * A[k][j] + A[i][j]
+           
     #U será a matriz A modificada 
     return (L,A)
 
@@ -73,7 +80,7 @@ if __name__ == "__main__":
             print("A matriz L está diferente do que deveria ser.")
             print(L)
             result = False
-        if U != [[1,-3,2],[0,2,3],[0,0,-12]]:
+        elif U != [[1,-3,2],[0,2,3],[0,0,-12]]:
             print("A função retornou um resultado não esperado. ")
             print("A matriz U está diferente do que deveria ser.")
             print(U)
