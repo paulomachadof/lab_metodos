@@ -7,9 +7,9 @@ Created on 14 de dez de 2015
 ## Inicialmente precisamos dizer ao python para considerar o diretório acima como
 ## parte do caminho para as bibliotecas
 import sys
-sys.path.append("../")
+from sist_linear.norma import norma
 
-from sist_linear import norma
+sys.path.append("../")
 
 def jacobi(n,A,b,epsilon,iterMax=50):
     """Resolve o sistema linear Ax=b usando o método iterativo Gauss-Jacobi.
@@ -17,15 +17,38 @@ def jacobi(n,A,b,epsilon,iterMax=50):
     Saída é o vetor x.
     
     """
-    # escreva o seu código aqui
+    x = n*[0]
+    v = n*[0]
     
-
+    for i in range(0,n):
+        for j in range (0,n):
+            if (i != j):
+                A[i][j] = -A[i][j]/A[i][i]
+        b[i] = b[i]/A[i][i]
+        x[i] = b[i]
+        A[i][i] = 0
+    for k in range(1,iterMax):
+        for i in range(0,n):
+            soma = 0
+            for j in range(0,n):
+                soma += A[i][j]*x[j]
+            v[i] = soma + b[i]
+        
+        d = norma(n, v, x)
+        if(d < epsilon):
+            return v
+        for i in range(0,n):
+            x[i] = v[i]
+            
+    print("O Número máximo de interações foi atingido")
 if __name__ == "__main__":
     ## teste da função
-    #n = ...
-    #A = ...
-    #b = ...
-    #epsilon = ...
+    n = 3
+    A =[[10, 3, -2],
+        [2, 8, -1],
+        [1, 1, 5]]
+    b = [57,20,-4]
+    epsilon = 0.05
     print("Testando o método de Gauss-Jacobi para sistemas lineares")
-    #x = jacobi(...)
-    #print("x = %s"%x)
+    x = jacobi(n,A,b,epsilon)
+    print("x = %s"%x)
