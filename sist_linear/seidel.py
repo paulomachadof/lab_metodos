@@ -7,9 +7,8 @@ Created on 14 de dez de 2015
 ## Inicialmente precisamos dizer ao python para considerar o diretório acima como
 ## parte do caminho para as bibliotecas
 import sys
-from sist_linear.norma import norma
-
 sys.path.append("../")
+from sist_linear.norma import norma
 
 def seidel(n,A,b,epsilon,iterMax=50):
     """Resolve o sistema linear Ax=b usando o método iterativo Gauss-Jacobi.
