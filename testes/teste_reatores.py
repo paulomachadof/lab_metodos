@@ -9,6 +9,10 @@ from sist_linear.jacobi import jacobi
 from sist_linear.seidel import seidel
 from sist_linear.gauss import gauss
 
+
+#Resolvendo a questão dos Reatores pelos métodos de Gauss, Gauss-Jacobi e Gauss-Seidel
+
+
 if __name__ == "__main__":
     
     def teste01():
