@@ -79,7 +79,7 @@ if __name__ == "__main__":
     epsilon = 0.001
     maxIter = 20
     print("Método da Posição Falsa")
-    (houveErro, raiz) = false_pos(f1,a,b,epsilon,maxIter,mostraTabela=False)
+    (houveErro, raiz,k) = false_pos(f1,a,b,epsilon,maxIter,mostraTabela=False)
     if houveErro:
         print("O Método da Posição Falsa retornou um erro.")
     if raiz is not None:
