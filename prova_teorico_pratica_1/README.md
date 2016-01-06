@@ -1,0 +1,1 @@
+Esta pasta deverá ser utilizada para armazenar os arquivos-fonte utilizados para responder as perguntas, bem como a solução da prova em um arquivo pdf(qualquer editor de textos pode ser utilizado). Na solução da prova, todas as respostas precisam ser justificadas. No caso de questões práticas, explique como os códigos foram utilizados.
