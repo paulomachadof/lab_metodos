@@ -1,0 +1,22 @@
+Critérios de correção da prova prática (total 100 escores)
+
+Questão 1 (40 escores): Escores obtidos: 40
+a) existe o comentário no arquivo com o comando válido do octave (5 escores)? Sim
+b) A função está implementada corretamente (10 escores)? Sim
+   Existe o comentário ao final da função com o valor de L encontrado e o número de iterações (5 escores)? Sim
+c) A função está implementada corretamente (10 escores)? Sim
+   Existe o comentário ao final da função com o valor de L encontrado e o número de iterações (5 escores)? Sim
+d) Existe o comentário com a resposta correta e justificativa (5 escores)? Sim
+
+Questão 2 (31 escores): Escores obtidos: 31
+a) A função está implementada corretamente (10 escores)? Sim
+   Existe o comentário ao final da função com o valor de pi encontrado e o número de iterações (3 escores)? Sim
+b) A função está implementada corretamente (10 escores)? Sim
+   Existe o comentário ao final da função com o valor de pi encontrado e o número de iterações (3 escores)? Sim
+c) Existe o comentário com a resposta correta e justificativa (5 escores)? Sim
+
+Questão 3 (29 escores): Escores obtidos: 29
+A função está implementada corretamente (14 escores)? Sim
+O valor de x0 é razoável (5 escores)? Sim
+Existe o comentário no arquivo com o comando válido do octave (5 escores)? Sim
+Existe o comentário com a raiz correta e o número de iterações (5 escores)? Sim
