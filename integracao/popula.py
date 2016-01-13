@@ -12,7 +12,15 @@ def popula_vetores(f, a, b, m ):
     x = (m+1)*[0]
     y = (m+1)*[0]
     # escreva o seu código aqui
+    h = (b - a) / m
     
+    x[0] = a
+    y[0] = f(a)
+    for i in range(1,m):
+        x[i] = x[i-1] + h
+        y[i] = f(x[i]) 
+    x[m] = b
+    y[m] = f(x[m])         
     return (x,y)
     
 if __name__ == "__main__":
@@ -27,5 +35,3 @@ if __name__ == "__main__":
     print("i\txi\tf(xi)")
     for i in range(0,m+1):
         print("%d\t%.4f\t%s"%(i,x[i],y[i]))
-    
-        

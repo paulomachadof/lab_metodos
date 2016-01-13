@@ -2,9 +2,9 @@
 
 import sys
 sys.path.append("../")
+from integracao.popula import popula_vetores
 
-
-def trapz(x, y, m=1):
+def trapz(x, y):
     """
     Aproxima o valor da integral pela regra do trapézio, onde x é um vetor
     contendo x0 e x1 e y é um vetor contendo f(x0) e f(x1).
@@ -23,7 +23,13 @@ def trapz(x, y, m=1):
     return It
 
 if __name__ == "__main__":
-    x = [1,7]
-    y = [1/1,1/7]
+    from math import log
+    
+    def f(x):
+        return x**3 * log(x)
+    a = 1
+    b = 3
+    m = 4
+    (x,y) = popula_vetores(f, a, b, m)
     T = trapz(x,y)
     print(T)
