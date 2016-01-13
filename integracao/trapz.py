@@ -11,10 +11,13 @@ def trapz(x, y):
     Retorna o valor da integral.
     
     """
-    # escreva o seu código aqui
+    h = x[1] - x[0]
+    T = (h/2) * (y[0] + y[1])
     
+    return T
+
 if __name__ == "__main__":
-    #x = [...]
-    #y = [..]
-    #T = trapz(...)
-    #print(T)
+    x = [1,7]
+    y = [1/1,1/7]
+    T = trapz(x,y)
+    print(T)
