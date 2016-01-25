@@ -1,0 +1,15 @@
+Critérios de correção da prova prática 2 (total 100 escores)
+
+Questão 1 (40 escores):
+ O método de Newton ou de Lagrange foi implementado corretamente (20 escores)? 
+ Os parâmetros da função de interpolação foram inicializados corretamente (15 escores)? 
+ Existe o comentário ao final do arquivo com a resposta correta (5 escores)? 
+
+Questão 2 (60 escores)
+a) O método do trapézio está implementado corretamente (10 escores)?
+   Os parâmetros foram inicializados corretamente (15 escores)?
+   A resposta obtida é a mesma que os proprietários calcularam (5 escores)? 
+
+b) As funções de interpolação utilizadas estão implementadas corretamente (10 escores)? 
+   Os parâmetros foram inicializados e as funções chamadas corretamente (15 escores)?
+   Existe o comentário ao final do arquivo com a resposta correta (5 escores)?
