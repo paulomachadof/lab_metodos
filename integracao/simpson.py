@@ -20,6 +20,6 @@ def simpson13(x, y, m=2):
     
 
 if __name__ == "__main__":
-    # escreva o teste aqui
+    #escreva o seu código aqui
     
     
