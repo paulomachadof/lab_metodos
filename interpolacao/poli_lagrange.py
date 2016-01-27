@@ -51,7 +51,6 @@ if __name__ == "__main__":
         n = 2 
         p = interpola_lagrange(x,y,n)
         v = poli_aval(p, 1)
-        print(v) 
-        
-teste_interp_linear()
-teste_interp_quadratica()
+        print(v)
+    teste_interp_linear()
+    teste_interp_quadratica()
