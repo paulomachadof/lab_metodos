@@ -27,7 +27,6 @@ def simpson13(x, y, m=2):
             c = 2
         else:
             c = 4
-        print(i, c, y[i])
         s += c*y[i]
     return h/3 * s   
 if __name__ == "__main__":
