@@ -9,7 +9,6 @@ def trapz(x, y,m):
     Aproxima o valor da integral pela regra do trapézio, onde x é um vetor
     contendo x0 e x1 e y é um vetor contendo f(x0) e f(x1).
     Retorna o valor da integral.
-    
     """
     if len(x) != m+1 or len(y) != m+1:
         print("Erro!")
